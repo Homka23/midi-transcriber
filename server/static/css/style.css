@@ -1,0 +1,31 @@
+/* Контейнер клавіатури */
+#piano {
+  display: flex;
+  position: relative;
+  height: 120px;
+  margin: 20px 0;
+}
+
+/* Білі клавіші */
+.key.white {
+  width: 40px;
+  height: 120px;
+  background: white;
+  border: 1px solid black;
+  position: relative;
+}
+
+/* Чорні клавіші */
+.key.black {
+  width: 25px;
+  height: 80px;
+  background: black;
+  position: absolute;
+  margin-left: -12px; /* щоб чорні клавіші перекривали білі */
+  z-index: 2;
+}
+
+/* Підсвічування активної клавіші */
+.key.active {
+  background: yellow !important;
+}

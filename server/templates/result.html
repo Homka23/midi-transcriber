@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Result</title>
+</head>
+
+<body>
+
+<h2>Розпізнані ноти</h2>
+
+<table border="1">
+<tr>
+<th>Start</th>
+<th>End</th>
+<th>Duration</th>
+<th>Note</th>
+<th>Velocity</th>
+</tr>
+{% for n in notes %}
+<tr>
+<td>{{n.start}}</td>
+<td>{{n.end}}</td>
+<td>{{n.duration}}</td>
+<td>{{n.note}}</td>
+<td>{{n.velocity}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<h2>Графік нот</h2>
+<img src="{{ plot_url }}" alt="Piano-roll">
+
+<h2>Оцінка виконання гамми До мажор</h2>
+<p>Всі ноти наявні? {{ evaluation.is_correct_set }}</p>
+<p>Ноти у правильному порядку? {{ evaluation.is_correct_sequence }}</p>
+<p>Пропущені ноти: {{ evaluation.missing_notes }}</p>
+<p>Зайві ноти: {{ evaluation.extra_notes }}</p>
+
+<br>
+<a href="/download?file={{midi_file}}">Завантажити MIDI</a>
+
+</body>
+</html>
